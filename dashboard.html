@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personalized student learning dashboard on THIRAN (திறன்). Track enrolled courses, completion analytics, weekly activity, and continue lessons.">
+    <title>Student Dashboard | THIRAN (திறன்) - Learn. Grow. Shine.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/courses.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="brand-titles">
+                    <span class="brand-name">THIRAN <span class="brand-tamil-badge">திறன்</span></span>
+                    <span class="brand-tagline-mini">Learn. Grow. Shine.</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="courses.html" class="nav-link">Courses</a>
+                <a href="dashboard.html" class="nav-link active">Dashboard</a>
+                <a href="my-learning.html" class="nav-link">My Learning</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <!-- Rendered dynamically by main.js with user avatar -->
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Dashboard Main Layout -->
+    <div class="dashboard-layout">
+        <!-- Sidebar Backdrop on Mobile -->
+        <div class="sidebar-overlay"></div>
+
+        <!-- Responsive Dashboard Sidebar -->
+        <aside class="dashboard-sidebar">
+            <div>
+                <!-- User Quick Info -->
+                <div class="sidebar-user-card">
+                    <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=250&q=80" alt="Student Avatar" class="sidebar-avatar" id="sidebarUserAvatar">
+                    <div class="sidebar-user-meta">
+                        <div class="sidebar-user-name" id="sidebarUserName">Karthik Raja</div>
+                        <div class="sidebar-user-role"><i class="fas fa-user-graduate"></i> Enrolled Student</div>
+                    </div>
+                </div>
+
+                <!-- Navigation List -->
+                <nav class="sidebar-nav-list">
+                    <a href="dashboard.html" class="sidebar-nav-item active">
+                        <i class="fas fa-th-large"></i> Dashboard
+                    </a>
+                    <a href="courses.html" class="sidebar-nav-item">
+                        <i class="fas fa-compass"></i> Explore Courses
+                    </a>
+                    <a href="my-learning.html" class="sidebar-nav-item">
+                        <i class="fas fa-book-reader"></i> My Learning
+                    </a>
+                    <a href="profile.html" class="sidebar-nav-item">
+                        <i class="fas fa-user-circle"></i> My Profile
+                    </a>
+                    <a href="profile.html#settings" class="sidebar-nav-item">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                </nav>
+            </div>
+
+            <!-- Bottom Actions -->
+            <div class="sidebar-bottom-actions">
+                <button class="sidebar-logout-btn" id="sidebarLogoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </button>
+            </div>
+        </aside>
+
+        <!-- Main Dashboard Content -->
+        <main class="dashboard-main" id="dashboardMainView">
+            <!-- Mobile Toggle Button -->
+            <button class="mobile-sidebar-toggle-btn" aria-label="Open sidebar menu">
+                <i class="fas fa-bars"></i> Dashboard Menu
+            </button>
+
+            <!-- Personalized Welcome Banner -->
+            <section class="dashboard-welcome-banner">
+                <div class="welcome-banner-content">
+                    <span class="welcome-tamil-badge">
+                        திறன் மூலம் உன் எதிர்காலத்தை உருவாக்கு
+                    </span>
+                    <h1 class="welcome-title" id="dashboardGreeting">Good morning, Karthik! 👋</h1>
+                    <p class="welcome-subtitle" id="dashboardSubtitle">
+                        Track your courses, finish your daily target, and unlock your potential with THIRAN.
+                    </p>
+                    <div class="welcome-banner-actions">
+                        <a href="my-learning.html" class="btn btn-secondary btn-sm" style="background: #FFFFFF; color: var(--primary-teal);">
+                            <i class="fas fa-play"></i> Continue Learning
+                        </a>
+                        <a href="courses.html" class="btn btn-outline btn-sm" style="border-color: #FFFFFF; color: #FFFFFF;">
+                            <i class="fas fa-plus"></i> Enroll in New Course
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Analytics Cards Grid (4 Cards) -->
+            <section class="analytics-cards-grid">
+                <!-- Card 1: Enrolled Courses -->
+                <div class="analytic-stat-card">
+                    <div class="stat-icon-wrap">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Enrolled Courses</span>
+                        <span class="stat-value" id="statEnrolledCount">3</span>
+                    </div>
+                </div>
+
+                <!-- Card 2: Completed Courses -->
+                <div class="analytic-stat-card">
+                    <div class="stat-icon-wrap" style="background: var(--success-light); color: var(--success);">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Completed Courses</span>
+                        <span class="stat-value" id="statCompletedCount">1</span>
+                    </div>
+                </div>
+
+                <!-- Card 3: Hours Learned -->
+                <div class="analytic-stat-card">
+                    <div class="stat-icon-wrap" style="background: #E0F2FE; color: #0284C7;">
+                        <i class="far fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Hours Learned</span>
+                        <span class="stat-value" id="statHoursLearned">59.7 hrs</span>
+                    </div>
+                </div>
+
+                <!-- Card 4: Learning Progress -->
+                <div class="analytic-stat-card">
+                    <div class="stat-icon-wrap" style="background: var(--warning-light); color: #B45309;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-label">Learning Progress</span>
+                        <span class="stat-value" id="statAvgProgress">62%</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Dashboard Two-Column Grid -->
+            <div class="dashboard-grid-columns">
+                <!-- Left: Continue Learning & Recently Enrolled -->
+                <div>
+                    <!-- Continue Learning Widget -->
+                    <div class="dashboard-panel-card" style="margin-bottom: 2rem;">
+                        <div class="panel-card-header">
+                            <h3 class="panel-card-title">
+                                <i class="fas fa-play-circle" style="color: var(--primary-teal);"></i> Continue Learning
+                            </h3>
+                            <a href="my-learning.html" style="font-size: 0.84rem; color: var(--primary-teal); font-weight: 600;">
+                                View All
+                            </a>
+                        </div>
+                        <div id="continueLearningContainer">
+                            <!-- Injected by js/dashboard.js -->
+                        </div>
+                    </div>
+
+                    <!-- Recently Enrolled Courses List -->
+                    <div class="dashboard-panel-card">
+                        <div class="panel-card-header">
+                            <h3 class="panel-card-title">
+                                <i class="fas fa-history" style="color: var(--primary-teal);"></i> Recently Enrolled Courses
+                            </h3>
+                            <a href="courses.html" style="font-size: 0.84rem; color: var(--primary-teal); font-weight: 600;">
+                                Browse Catalog
+                            </a>
+                        </div>
+                        <div id="recentEnrollmentsList">
+                            <!-- Injected by js/dashboard.js -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Weekly Activity & Recommended -->
+                <div>
+                    <!-- Weekly Learning Activity Chart -->
+                    <div class="dashboard-panel-card" style="margin-bottom: 2rem;">
+                        <div class="panel-card-header">
+                            <h3 class="panel-card-title">
+                                <i class="fas fa-calendar-alt" style="color: var(--primary-teal);"></i> Weekly Activity
+                            </h3>
+                            <span style="font-size: 0.82rem; color: var(--text-secondary);">Hours per day</span>
+                        </div>
+                        <div class="weekly-activity-chart" id="weeklyChartContainer">
+                            <!-- Injected by js/dashboard.js -->
+                        </div>
+                    </div>
+
+                    <!-- Recommended Courses -->
+                    <div class="dashboard-panel-card">
+                        <div class="panel-card-header">
+                            <h3 class="panel-card-title">
+                                <i class="fas fa-sparkles" style="color: var(--secondary-teal);"></i> Recommended for You
+                            </h3>
+                            <a href="courses.html" style="font-size: 0.84rem; color: var(--primary-teal); font-weight: 600;">
+                                More
+                            </a>
+                        </div>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;" id="recommendedCoursesContainer">
+                            <!-- Injected by js/dashboard.js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="THIRAN (திறன்) - Learn. Grow. Shine. Premier online learning platform offering industry-vetted courses in Web Development, AI, Data Science, Cloud, and Cybersecurity.">
+    <title>THIRAN (திறன்) | Online Learning Platform - Learn. Grow. Shine.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/courses.css">
+
+    <style>
+        /* Home Specific Hero & Landing Enhancements */
+        .hero-section {
+            padding: 4.5rem 0 5.5rem;
+            position: relative;
+            background: radial-gradient(circle at 85% 20%, rgba(20, 184, 166, 0.12) 0%, transparent 50%),
+                        radial-gradient(circle at 10% 80%, rgba(8, 126, 139, 0.08) 0%, transparent 40%),
+                        var(--bg-page);
+            overflow: hidden;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.15fr 0.85fr;
+            gap: 3.5rem;
+            align-items: center;
+        }
+
+        .hero-content {
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 3.25rem;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-title span {
+            background: var(--teal-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            max-width: 580px;
+        }
+
+        .hero-search-box {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: var(--radius-full);
+            padding: 0.35rem 0.5rem 0.35rem 1.4rem;
+            box-shadow: 0 10px 25px -5px rgba(8, 126, 139, 0.12);
+            margin-bottom: 2rem;
+            max-width: 580px;
+            transition: var(--transition);
+        }
+
+        .hero-search-box:focus-within {
+            border-color: var(--primary-teal);
+            box-shadow: 0 0 0 4px rgba(8, 126, 139, 0.15);
+        }
+
+        .hero-search-input {
+            width: 100%;
+            background: transparent;
+            color: var(--text-main);
+            font-size: 0.98rem;
+        }
+
+        .hero-cta-group {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-visual-card {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-main-img {
+            width: 100%;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--elevated-shadow);
+            border: 3px solid rgba(255, 255, 255, 0.8);
+            object-fit: cover;
+            height: 420px;
+        }
+
+        .floating-badge {
+            position: absolute;
+            background: var(--card-bg);
+            padding: 0.85rem 1.25rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--elevated-shadow);
+            border: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+            animation: pulseSubtle 3s ease-in-out infinite;
+        }
+
+        .badge-pos-1 {
+            top: 20px;
+            left: -30px;
+        }
+
+        .badge-pos-2 {
+            bottom: 25px;
+            right: -25px;
+        }
+
+        .floating-badge-icon {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            background: var(--light-mint);
+            color: var(--primary-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+        }
+
+        /* Categories Section */
+        .categories-section {
+            padding: 5rem 0;
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+        }
+
+        .category-card {
+            background: var(--bg-page);
+            border: 1.5px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 1.75rem 1.5rem;
+            text-align: center;
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-teal);
+            box-shadow: var(--card-shadow-hover);
+            background: var(--card-bg);
+        }
+
+        .category-icon-box {
+            width: 60px;
+            height: 60px;
+            border-radius: var(--radius-md);
+            background: var(--teal-gradient-soft);
+            color: var(--primary-teal);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.6rem;
+            margin-bottom: 1.1rem;
+            transition: var(--transition);
+        }
+
+        .category-card:hover .category-icon-box {
+            background: var(--teal-gradient);
+            color: #FFFFFF;
+            transform: scale(1.1);
+        }
+
+        .category-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.35rem;
+            color: var(--text-main);
+        }
+
+        .category-course-count {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        /* Value Props / Why Choose */
+        .why-section {
+            padding: 5.5rem 0;
+            background: radial-gradient(circle at 50% 50%, rgba(8, 126, 139, 0.05) 0%, transparent 70%), var(--bg-page);
+        }
+
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .why-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.25rem 2rem;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+        }
+
+        .why-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--primary-teal);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .why-icon-wrap {
+            width: 52px;
+            height: 52px;
+            border-radius: var(--radius-md);
+            background: var(--teal-gradient);
+            color: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.35rem;
+            margin-bottom: 1.25rem;
+            box-shadow: 0 4px 12px rgba(8, 126, 139, 0.25);
+        }
+
+        .why-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.65rem;
+        }
+
+        .why-desc {
+            font-size: 0.92rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Instructors Section */
+        .instructors-section {
+            padding: 5rem 0;
+            background: var(--card-bg);
+        }
+
+        .instructors-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.75rem;
+            margin-top: 3rem;
+        }
+
+        .instructor-card {
+            background: var(--bg-page);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            text-align: center;
+            padding: 2rem 1.5rem;
+            transition: var(--transition);
+        }
+
+        .instructor-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--secondary-teal);
+            box-shadow: var(--card-shadow-hover);
+        }
+
+        .instructor-img {
+            width: 95px;
+            height: 95px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1.1rem;
+            border: 3px solid var(--secondary-teal);
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 5rem 0;
+            background: var(--bg-page);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .testimonial-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            position: relative;
+        }
+
+        .testimonial-quote {
+            font-size: 0.94rem;
+            line-height: 1.65;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 0.85rem;
+        }
+
+        .author-avatar {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* CTA Banner */
+        .cta-banner-section {
+            padding: 5rem 0;
+        }
+
+        .cta-banner {
+            background: var(--teal-gradient);
+            border-radius: var(--radius-lg);
+            padding: 3.5rem 3rem;
+            color: #FFFFFF;
+            text-align: center;
+            box-shadow: 0 15px 35px rgba(8, 126, 139, 0.35);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            color: #FFFFFF;
+        }
+
+        .cta-subtitle {
+            font-size: 1.1rem;
+            color: #E2E8F0;
+            max-width: 650px;
+            margin: 0 auto 2rem;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .hero-title { font-size: 2.6rem; }
+            .categories-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+            .instructors-grid { grid-template-columns: repeat(2, 1fr); }
+            .testimonials-grid { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+            .hero-visual-card { order: -1; }
+            .floating-badge { display: none; }
+            .why-grid { grid-template-columns: 1fr; }
+            .instructors-grid { grid-template-columns: 1fr; }
+            .hero-title { font-size: 2.15rem; }
+            .cta-banner { padding: 2.5rem 1.5rem; }
+            .cta-title { font-size: 1.75rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Site Header & Navigation -->
+    <header class="site-header">
+        <div class="container navbar">
+            <!-- Brand Logo -->
+            <a href="index.html" class="brand-logo" aria-label="THIRAN Home">
+                <div class="brand-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="brand-titles">
+                    <span class="brand-name">
+                        THIRAN <span class="brand-tamil-badge">திறன்</span>
+                    </span>
+                    <span class="brand-tagline-mini">Learn. Grow. Shine.</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="courses.html" class="nav-link">Courses</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="my-learning.html" class="nav-link">My Learning</a>
+            </nav>
+
+            <!-- Actions: Theme Toggle & User Auth Status -->
+            <div class="nav-actions">
+                <!-- Dynamically updated by js/main.js -->
+                <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+                <button class="mobile-nav-toggle" aria-label="Toggle mobile menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container hero-grid">
+                <!-- Left Content -->
+                <div class="hero-content">
+                    <span class="section-tag">
+                        <i class="fas fa-rocket"></i> Empowering 50,000+ Students Across South Asia
+                    </span>
+                    <h1 class="hero-title">
+                        Learn New Skills. <span>Build Your Future.</span>
+                    </h1>
+                    <p class="hero-subtitle">
+                        Discover expert-led courses, develop your skills, and unlock your full potential with THIRAN. Master Web Development, Artificial Intelligence, Data Science, and modern engineering.
+                    </p>
+
+                    <!-- Course Search Bar -->
+                    <form class="hero-search-box" id="heroSearchForm">
+                        <i class="fas fa-search" style="color: var(--primary-teal); margin-right: 0.75rem;"></i>
+                        <input type="text" class="hero-search-input" id="heroSearchInput" placeholder="What skill do you want to learn today? (e.g. Python, AI, React)..." aria-label="Search courses">
+                        <button type="submit" class="btn btn-primary btn-sm" style="border-radius: var(--radius-full); padding: 0.6rem 1.4rem;">
+                            Search
+                        </button>
+                    </form>
+
+                    <!-- CTA Buttons -->
+                    <div class="hero-cta-group">
+                        <a href="courses.html" class="btn btn-primary btn-lg">
+                            <i class="fas fa-compass"></i> Explore Courses
+                        </a>
+                        <a href="register.html" class="btn btn-secondary btn-lg">
+                            <i class="fas fa-user-plus"></i> Join for Free
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual -->
+                <div class="hero-visual-card">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" alt="Students learning online with THIRAN" class="hero-main-img">
+                    
+                    <!-- Floating Badge 1 -->
+                    <div class="floating-badge badge-pos-1">
+                        <div class="floating-badge-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.88rem; font-weight: 700; color: var(--text-main);">Certified Degrees</div>
+                            <div style="font-size: 0.75rem; color: var(--text-secondary);">Recognized Credentials</div>
+                        </div>
+                    </div>
+
+                    <!-- Floating Badge 2 -->
+                    <div class="floating-badge badge-pos-2">
+                        <div class="floating-badge-icon" style="background: var(--success-light); color: var(--success);">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div>
+                            <div style="font-size: 0.88rem; font-weight: 700; color: var(--text-main);">4.9 / 5.0 Rating</div>
+                            <div style="font-size: 0.75rem; color: var(--text-secondary);">From 15,000+ Reviews</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Popular Categories Section -->
+        <section class="categories-section">
+            <div class="container text-center">
+                <span class="section-tag"><i class="fas fa-th-large"></i> Top Disciplines</span>
+                <h2 class="section-title">Popular <span>Categories</span></h2>
+                <p class="section-subtitle">Choose from industry-demanded domains taught by senior industry engineers and researchers.</p>
+
+                <div class="categories-grid">
+                    <div class="category-card" onclick="window.location.href='courses.html?category=Web+Development'">
+                        <div class="category-icon-box"><i class="fas fa-code"></i></div>
+                        <h3 class="category-title">Web Development</h3>
+                        <span class="category-course-count">12+ Courses</span>
+                    </div>
+
+                    <div class="category-card" onclick="window.location.href='courses.html?category=Programming'">
+                        <div class="category-icon-box"><i class="fas fa-laptop-code"></i></div>
+                        <h3 class="category-title">Programming</h3>
+                        <span class="category-course-count">15+ Courses</span>
+                    </div>
+
+                    <div class="category-card" onclick="window.location.href='courses.html?category=Data+Science'">
+                        <div class="category-icon-box"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="category-title">Data Science</h3>
+                        <span class="category-course-count">9+ Courses</span>
+                    </div>
+
+                    <div class="category-card" onclick="window.location.href='courses.html?category=Artificial+Intelligence'">
+                        <div class="category-icon-box"><i class="fas fa-brain"></i></div>
+                        <h3 class="category-title">Artificial Intelligence</h3>
+                        <span class="category-course-count">8+ Courses</span>
+                    </div>
+
+                    <div class="category-card" onclick="window.location.href='courses.html?category=UI%2FUX+Design'">
+                        <div class="category-icon-box"><i class="fas fa-palette"></i></div>
+                        <h3 class="category-title">UI/UX Design</h3>
+                        <span class="category-course-count">7+ Courses</span>
+                    </div>
+
+                    <div class="category-card" onclick="window.location.href='courses.html?category=Database+Management'">
+                        <div class="category-icon-box"><i class="fas fa-database"></i></div>
+                        <h3 class="category-title">Database Management</h3>
+                        <span class="category-course-count">6+ Courses</span>
+                    </div>
+
+                    <div class="category-card" onclick="window.location.href='courses.html?category=Cybersecurity'">
+                        <div class="category-icon-box"><i class="fas fa-shield-alt"></i></div>
+                        <h3 class="category-title">Cybersecurity</h3>
+                        <span class="category-course-count">8+ Courses</span>
+                    </div>
+
+                    <div class="category-card" onclick="window.location.href='courses.html?category=Cloud+Computing'">
+                        <div class="category-icon-box"><i class="fas fa-cloud"></i></div>
+                        <h3 class="category-title">Cloud Computing</h3>
+                        <span class="category-course-count">10+ Courses</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Courses Section -->
+        <section class="courses-page" style="padding-top: 4.5rem;">
+            <div class="container text-center">
+                <span class="section-tag"><i class="fas fa-fire"></i> Handpicked Excellence</span>
+                <h2 class="section-title">Featured <span>Courses</span></h2>
+                <p class="section-subtitle">Start with our highest-rated programs crafted to take you from foundational basics to industry readiness.</p>
+
+                <div class="courses-grid" style="margin-top: 2.5rem; text-align: left;">
+                    <!-- Course 1 -->
+                    <article class="course-card">
+                        <div class="course-card-thumb-wrap">
+                            <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80" alt="Full Stack Web Development" class="course-card-img">
+                            <span class="badge badge-featured course-badge-tag">Bestseller</span>
+                            <span class="course-level-pill">Beginner</span>
+                        </div>
+                        <div class="course-card-body">
+                            <span class="course-category-meta">Web Development</span>
+                            <h3 class="course-card-title">
+                                <a href="course-details.html?id=c1">Full Stack Web Development Bootcamp</a>
+                            </h3>
+                            <p class="course-card-desc">Master frontend to backend engineering from scratch. Build production-grade responsive web apps with modern JavaScript.</p>
+                            <div class="course-instructor-row">
+                                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80" alt="Dr. Aravind" class="course-instructor-avatar">
+                                <span class="course-instructor-name">Dr. Aravind Swaminathan</span>
+                            </div>
+                            <div class="course-meta-specs">
+                                <span class="course-spec-item"><i class="far fa-clock"></i> 42 Hours</span>
+                                <span class="course-spec-item"><i class="far fa-file-video"></i> 48 Lessons</span>
+                            </div>
+                            <div class="course-rating-row">
+                                <div class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <span class="rating-score">4.9</span>
+                                <span class="rating-count">(1,420)</span>
+                            </div>
+                            <div class="course-card-footer">
+                                <div class="course-pricing">
+                                    <span class="price-current">₹1,999</span>
+                                    <span class="price-original">₹4,999</span>
+                                </div>
+                                <div class="course-card-actions">
+                                    <a href="course-details.html?id=c1" class="btn btn-outline btn-sm">Details</a>
+                                    <a href="course-details.html?id=c1" class="btn btn-primary btn-sm">Enroll Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Course 2 -->
+                    <article class="course-card">
+                        <div class="course-card-thumb-wrap">
+                            <img src="https://images.unsplash.com/photo-1526379095098-d400fd0bf935?auto=format&fit=crop&w=800&q=80" alt="Python for Everybody" class="course-card-img">
+                            <span class="badge badge-success course-badge-tag">Free Course</span>
+                            <span class="course-level-pill">Beginner</span>
+                        </div>
+                        <div class="course-card-body">
+                            <span class="course-category-meta">Programming</span>
+                            <h3 class="course-card-title">
+                                <a href="course-details.html?id=c2">Python for Everybody: Zero to Hero</a>
+                            </h3>
+                            <p class="course-card-desc">Start your coding journey with Python 3. Learn fundamentals, algorithms, file handling, and scripts with hands-on practice.</p>
+                            <div class="course-instructor-row">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=250&q=80" alt="Priya Meenakshi" class="course-instructor-avatar">
+                                <span class="course-instructor-name">Priya Meenakshi</span>
+                            </div>
+                            <div class="course-meta-specs">
+                                <span class="course-spec-item"><i class="far fa-clock"></i> 28 Hours</span>
+                                <span class="course-spec-item"><i class="far fa-file-video"></i> 34 Lessons</span>
+                            </div>
+                            <div class="course-rating-row">
+                                <div class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+                                <span class="rating-score">4.8</span>
+                                <span class="rating-count">(2,890)</span>
+                            </div>
+                            <div class="course-card-footer">
+                                <div class="course-pricing">
+                                    <span class="price-free">Free</span>
+                                </div>
+                                <div class="course-card-actions">
+                                    <a href="course-details.html?id=c2" class="btn btn-outline btn-sm">Details</a>
+                                    <a href="course-details.html?id=c2" class="btn btn-primary btn-sm">Enroll Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Course 3 -->
+                    <article class="course-card">
+                        <div class="course-card-thumb-wrap">
+                            <img src="https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=800&q=80" alt="Generative AI & LLMs" class="course-card-img">
+                            <span class="badge badge-featured course-badge-tag">Hot & New</span>
+                            <span class="course-level-pill">Advanced</span>
+                        </div>
+                        <div class="course-card-body">
+                            <span class="course-category-meta">Artificial Intelligence</span>
+                            <h3 class="course-card-title">
+                                <a href="course-details.html?id=c4">Generative AI & LLM Engineering with Prompting</a>
+                            </h3>
+                            <p class="course-card-desc">Harness LLMs, chain-of-thought prompt engineering, vector databases, LangChain, and RAG architectures.</p>
+                            <div class="course-instructor-row">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80" alt="Siddharth Natarajan" class="course-instructor-avatar">
+                                <span class="course-instructor-name">Siddharth Natarajan</span>
+                            </div>
+                            <div class="course-meta-specs">
+                                <span class="course-spec-item"><i class="far fa-clock"></i> 32 Hours</span>
+                                <span class="course-spec-item"><i class="far fa-file-video"></i> 38 Lessons</span>
+                            </div>
+                            <div class="course-rating-row">
+                                <div class="rating-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                                <span class="rating-score">4.9</span>
+                                <span class="rating-count">(840)</span>
+                            </div>
+                            <div class="course-card-footer">
+                                <div class="course-pricing">
+                                    <span class="price-current">₹2,999</span>
+                                    <span class="price-original">₹7,999</span>
+                                </div>
+                                <div class="course-card-actions">
+                                    <a href="course-details.html?id=c4" class="btn btn-outline btn-sm">Details</a>
+                                    <a href="course-details.html?id=c4" class="btn btn-primary btn-sm">Enroll Now</a>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <div style="margin-top: 3rem;">
+                    <a href="courses.html" class="btn btn-outline btn-lg">
+                        <i class="fas fa-book-open"></i> View All 12+ Courses
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Why Choose THIRAN Section -->
+        <section class="why-section" id="about">
+            <div class="container text-center">
+                <span class="section-tag"><i class="fas fa-gem"></i> The THIRAN Difference</span>
+                <h2 class="section-title">Why Choose <span>THIRAN (திறன்)?</span></h2>
+                <p class="section-subtitle">We bridge the gap between academic theory and practical engineering excellence with real mentors and verified outcomes.</p>
+
+                <div class="why-grid text-left">
+                    <div class="why-card">
+                        <div class="why-icon-wrap"><i class="fas fa-user-tie"></i></div>
+                        <h3 class="why-title">Expert-Led Instruction</h3>
+                        <p class="why-desc">Learn directly from senior software architects and researchers from leading tech enterprises who share battle-tested practices.</p>
+                    </div>
+
+                    <div class="why-card">
+                        <div class="why-icon-wrap"><i class="fas fa-project-diagram"></i></div>
+                        <h3 class="why-title">Production-Grade Projects</h3>
+                        <p class="why-desc">Do not just watch videos. Build full-fledged applications, optimize queries, and design robust architectures for your portfolio.</p>
+                    </div>
+
+                    <div class="why-card">
+                        <div class="why-icon-wrap"><i class="fas fa-chart-line"></i></div>
+                        <h3 class="why-title">Personalized Analytics</h3>
+                        <p class="why-desc">Monitor hours learned, track weekly study activity, and visualize course completion metrics with our intuitive dashboard.</p>
+                    </div>
+
+                    <div class="why-card">
+                        <div class="why-icon-wrap"><i class="fas fa-award"></i></div>
+                        <h3 class="why-title">Verified Certifications</h3>
+                        <p class="why-desc">Earn shareable certificates of completion with unique verification IDs to showcase your proven competencies to employers.</p>
+                    </div>
+
+                    <div class="why-card">
+                        <div class="why-icon-wrap"><i class="fas fa-hands-helping"></i></div>
+                        <h3 class="why-title">Student-Centric Support</h3>
+                        <p class="why-desc">Flexible self-paced learning, downloadable resources, interactive study notes, and active mentor-assisted discussions.</p>
+                    </div>
+
+                    <div class="why-card">
+                        <div class="why-icon-wrap"><i class="fas fa-globe-asia"></i></div>
+                        <h3 class="why-title">Bilingual Clarity</h3>
+                        <p class="why-desc">Concepts explained with crystal clarity in English accompanied by Tamil contextual summaries for intuitive mastery.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Top Instructors Section -->
+        <section class="instructors-section">
+            <div class="container text-center">
+                <span class="section-tag"><i class="fas fa-chalkboard-teacher"></i> World-Class Faculty</span>
+                <h2 class="section-title">Meet Our Top <span>Instructors</span></h2>
+                <p class="section-subtitle">Passionate educators and industry leaders dedicated to your career transformation.</p>
+
+                <div class="instructors-grid">
+                    <div class="instructor-card">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=250&q=80" alt="Dr. Aravind" class="instructor-img">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">Dr. Aravind Swaminathan</h4>
+                        <div style="font-size: 0.82rem; color: var(--primary-teal); font-weight: 600; margin-bottom: 0.5rem;">Lead Architect</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">12+ yrs experience in distributed systems & web platforms.</p>
+                        <span class="badge badge-primary"><i class="fas fa-star"></i> 4.9 Rating</span>
+                    </div>
+
+                    <div class="instructor-card">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=250&q=80" alt="Priya Meenakshi" class="instructor-img">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">Priya Meenakshi</h4>
+                        <div style="font-size: 0.82rem; color: var(--primary-teal); font-weight: 600; margin-bottom: 0.5rem;">Python Fellow</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Educator helping 30k+ students master programming.</p>
+                        <span class="badge badge-primary"><i class="fas fa-star"></i> 4.8 Rating</span>
+                    </div>
+
+                    <div class="instructor-card">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=250&q=80" alt="Kavitha Ramachandran" class="instructor-img">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">Kavitha Ramachandran</h4>
+                        <div style="font-size: 0.82rem; color: var(--primary-teal); font-weight: 600; margin-bottom: 0.5rem;">Principal Data Scientist</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Machine learning pipelines & financial data analytics.</p>
+                        <span class="badge badge-primary"><i class="fas fa-star"></i> 4.9 Rating</span>
+                    </div>
+
+                    <div class="instructor-card">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=250&q=80" alt="Siddharth Natarajan" class="instructor-img">
+                        <h4 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.25rem;">Siddharth Natarajan</h4>
+                        <div style="font-size: 0.82rem; color: var(--primary-teal); font-weight: 600; margin-bottom: 0.5rem;">AI Systems Lead</div>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1rem;">Specializing in generative AI, agents & RAG architecture.</p>
+                        <span class="badge badge-primary"><i class="fas fa-star"></i> 4.9 Rating</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <div class="container text-center">
+                <span class="section-tag"><i class="fas fa-comments"></i> Student Success</span>
+                <h2 class="section-title">What Our <span>Students Say</span></h2>
+                <p class="section-subtitle">Real feedback from aspiring engineers and working professionals who built their careers through THIRAN.</p>
+
+                <div class="testimonials-grid text-left">
+                    <div class="testimonial-card">
+                        <div class="rating-stars" style="margin-bottom: 0.75rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-quote">"The Full Stack Web Development course gave me the confidence to transition into a software developer role. The syllabus is completely practical without fluff."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=150&q=80" alt="Suresh Kumar" class="author-avatar">
+                            <div>
+                                <h5 style="font-size: 0.95rem; font-weight: 700;">Suresh Kumar</h5>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">Junior Frontend Dev @ Zoho</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="rating-stars" style="margin-bottom: 0.75rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-quote">"THIRAN's dashboard progress tracking and weekly study analytics kept me disciplined every single day. The Generative AI course is cutting edge!"</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" alt="Harini Sundaram" class="author-avatar">
+                            <div>
+                                <h5 style="font-size: 0.95rem; font-weight: 700;">Harini Sundaram</h5>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">AI Engineering Intern</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="testimonial-card">
+                        <div class="rating-stars" style="margin-bottom: 0.75rem;"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                        <p class="testimonial-quote">"I started with Python Zero to Hero which was completely free. The curriculum structure, quizzes, and lesson notes made learning addictive."</p>
+                        <div class="testimonial-author">
+                            <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?auto=format&fit=crop&w=150&q=80" alt="Rajesh Kannan" class="author-avatar">
+                            <div>
+                                <h5 style="font-size: 0.95rem; font-weight: 700;">Rajesh Kannan</h5>
+                                <span style="font-size: 0.8rem; color: var(--text-secondary);">CSE Undergrad Student</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Call to Action Banner -->
+        <section class="cta-banner-section">
+            <div class="container">
+                <div class="cta-banner">
+                    <span class="welcome-tamil-badge" style="background: rgba(255,255,255,0.25); color: #fff; margin-bottom: 1rem;">
+                        திறன் மூலம் உன் எதிர்காலத்தை உருவாக்கு
+                    </span>
+                    <h2 class="cta-title">Ready to Unlock Your True Potential?</h2>
+                    <p class="cta-subtitle">Join thousands of proactive learners. Learn in-demand skills, build real projects, and shine in your career with THIRAN.</p>
+                    <div style="display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap;">
+                        <a href="register.html" class="btn btn-secondary btn-lg" style="background: #FFFFFF; color: var(--primary-teal);">
+                            <i class="fas fa-user-plus"></i> Create Free Account
+                        </a>
+                        <a href="courses.html" class="btn btn-outline btn-lg" style="border-color: #FFFFFF; color: #FFFFFF;">
+                            <i class="fas fa-compass"></i> Explore Course Catalog
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Professional Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Col 1: Brand -->
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <div class="brand-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="brand-titles">
+                            <span class="brand-name">THIRAN <span class="brand-tamil-badge">திறன்</span></span>
+                            <span class="brand-tagline-mini" style="color: #94A3B8;">Learn. Grow. Shine.</span>
+                        </div>
+                    </a>
+                    <p class="footer-about">
+                        THIRAN (திறன்) is a premier modern online learning platform empowering students and developers with industry-vetted skills, verifiable certifications, and personalized progress analytics.
+                    </p>
+                    <div class="footer-social-links">
+                        <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Quick Links -->
+                <div>
+                    <h4 class="footer-title">Quick Navigation</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> Home</a></li>
+                        <li><a href="courses.html"><i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> All Courses</a></li>
+                        <li><a href="dashboard.html"><i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> Student Dashboard</a></li>
+                        <li><a href="my-learning.html"><i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> My Learning Space</a></li>
+                        <li><a href="profile.html"><i class="fas fa-chevron-right" style="font-size: 0.7rem;"></i> Student Profile</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Categories -->
+                <div>
+                    <h4 class="footer-title">Disciplines</h4>
+                    <ul class="footer-links">
+                        <li><a href="courses.html?category=Web+Development">Web Development</a></li>
+                        <li><a href="courses.html?category=Programming">Programming & Python</a></li>
+                        <li><a href="courses.html?category=Data+Science">Data Science & ML</a></li>
+                        <li><a href="courses.html?category=Artificial+Intelligence">Generative AI</a></li>
+                        <li><a href="courses.html?category=Cloud+Computing">Cloud & DevOps</a></li>
+                        <li><a href="courses.html?category=Cybersecurity">Cybersecurity</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Newsletter -->
+                <div>
+                    <h4 class="footer-title">Stay Inspired</h4>
+                    <p class="newsletter-text">Subscribe for weekly curated engineering guides, free workshops, and special early-bird course discounts.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required aria-label="Email for newsletter">
+                        <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom">
+                <div>
+                    &copy; 2026 THIRAN (திறன்) EdTech Platform. All Rights Reserved. Built with pride for excellence.
+                </div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Verification Portal</a>
+                    <a href="#">Student Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

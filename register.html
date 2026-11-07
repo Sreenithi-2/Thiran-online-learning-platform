@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Create your free student account on THIRAN (திறன்) to access curated courses, practice lessons, and earn verified certifications.">
+    <title>Student Registration | THIRAN (திறன்) - Learn. Grow. Shine.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="brand-titles">
+                    <span class="brand-name">THIRAN <span class="brand-tamil-badge">திறன்</span></span>
+                    <span class="brand-tagline-mini">Learn. Grow. Shine.</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="courses.html" class="nav-link">Courses</a>
+                <a href="index.html#about" class="nav-link">About</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="btn btn-outline btn-sm">Sign In</a>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Register Main -->
+    <main class="auth-page">
+        <div class="auth-wrapper" style="max-width: 1060px;">
+            <!-- Left Branded Banner -->
+            <div class="auth-banner">
+                <div class="auth-banner-content">
+                    <div class="auth-banner-logo">
+                        <div class="brand-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="brand-titles">
+                            <span class="brand-name">THIRAN <span class="brand-tamil-badge">திறன்</span></span>
+                        </div>
+                    </div>
+
+                    <h2 class="auth-banner-title">Start Building Your Future with THIRAN</h2>
+                    <p class="auth-banner-text">
+                        Create your free student profile today and join thousands of engineers acquiring real-world capabilities.
+                    </p>
+
+                    <div class="auth-feature-list">
+                        <div class="auth-feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Access free beginner courses instantly</span>
+                        </div>
+                        <div class="auth-feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Interactive classroom player with progress saving</span>
+                        </div>
+                        <div class="auth-feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Download source code and study cheat sheets</span>
+                        </div>
+                        <div class="auth-feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>Earn shareable certificates upon completion</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="auth-banner-footer">
+                    <span>Tagline: <strong>Learn. Grow. Shine.</strong> | திறன்</span>
+                </div>
+            </div>
+
+            <!-- Right Register Form -->
+            <div class="auth-form-container">
+                <div class="auth-header" style="margin-bottom: 1.5rem;">
+                    <h1 class="auth-title">Create Free Student Account</h1>
+                    <p class="auth-subtitle">Fill in your information below to register and start learning.</p>
+                </div>
+
+                <form class="auth-form" id="registerForm" novalidate>
+                    <!-- Full Name -->
+                    <div class="form-group">
+                        <label for="regName" class="form-label">Full Name</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-user input-icon"></i>
+                            <input type="text" id="regName" class="form-control" placeholder="e.g. Karthik Raja" required autocomplete="name">
+                        </div>
+                        <span class="field-error-msg"></span>
+                    </div>
+
+                    <!-- Email Address -->
+                    <div class="form-group">
+                        <label for="regEmail" class="form-label">Email Address</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-envelope input-icon"></i>
+                            <input type="email" id="regEmail" class="form-control" placeholder="name@example.com" required autocomplete="email">
+                        </div>
+                        <span class="field-error-msg"></span>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label for="regPhone" class="form-label">Phone Number (Optional)</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-phone input-icon"></i>
+                            <input type="tel" id="regPhone" class="form-control" placeholder="+91 98765 43210" autocomplete="tel">
+                        </div>
+                        <span class="field-error-msg"></span>
+                    </div>
+
+                    <!-- Password Field & Strength -->
+                    <div class="form-group">
+                        <label for="regPassword" class="form-label">Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="regPassword" class="form-control" placeholder="Minimum 6 characters" required autocomplete="new-password">
+                            <button type="button" class="password-toggle-btn" aria-label="Show password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-strength-bar" id="regPasswordStrength">
+                            <div class="password-strength-fill" id="regPasswordFill"></div>
+                        </div>
+                        <span class="field-error-msg"></span>
+                    </div>
+
+                    <!-- Confirm Password -->
+                    <div class="form-group">
+                        <label for="regConfirmPassword" class="form-label">Confirm Password</label>
+                        <div class="input-wrapper">
+                            <i class="fas fa-lock input-icon"></i>
+                            <input type="password" id="regConfirmPassword" class="form-control" placeholder="Re-enter your password" required autocomplete="new-password">
+                            <button type="button" class="password-toggle-btn" aria-label="Show password">
+                                <i class="fas fa-eye"></i>
+                            </button>
+                        </div>
+                        <span class="field-error-msg"></span>
+                    </div>
+
+                    <!-- Terms & Conditions -->
+                    <div class="form-group">
+                        <label class="checkbox-label" style="font-size: 0.85rem; align-items: flex-start;">
+                            <input type="checkbox" id="regTerms" required style="margin-top: 3px;">
+                            <span>I agree to THIRAN's <a href="#" style="color: var(--primary-teal); text-decoration: underline;">Terms of Service</a> and <a href="#" style="color: var(--primary-teal); text-decoration: underline;">Privacy Policy</a>.</span>
+                        </label>
+                        <span class="field-error-msg"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button type="submit" class="btn btn-primary btn-block auth-submit-btn">
+                        <i class="fas fa-user-plus"></i> Create Account
+                    </button>
+                </form>
+
+                <!-- Switch Link -->
+                <div class="auth-switch-text">
+                    Already registered on THIRAN? <a href="login.html">Sign In here</a>
+                </div>
+
+                <!-- Demonstration Notice -->
+                <div class="auth-demo-notice">
+                    <i class="fas fa-info-circle"></i> <strong>Notice:</strong> This is frontend demonstration authentication using LocalStorage for college evaluation.
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Professional Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <div>&copy; 2026 THIRAN (திறன்). Learn. Grow. Shine.</div>
+                <div class="footer-bottom-links">
+                    <a href="index.html">Home</a>
+                    <a href="courses.html">Courses</a>
+                    <a href="login.html">Login</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

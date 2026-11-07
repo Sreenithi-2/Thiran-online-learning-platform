@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Access your enrolled courses on THIRAN (திறன்), watch video lessons, mark completed topics, and earn verified certificates.">
+    <title>My Learning Space | THIRAN (திறன்) - Learn. Grow. Shine.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/courses.css">
+    <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="brand-titles">
+                    <span class="brand-name">THIRAN <span class="brand-tamil-badge">திறன்</span></span>
+                    <span class="brand-tagline-mini">Learn. Grow. Shine.</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="courses.html" class="nav-link">Courses</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="my-learning.html" class="nav-link active">My Learning</a>
+                <a href="profile.html" class="nav-link">Profile</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Body -->
+    <main class="courses-page" style="padding-top: 3rem;">
+        <div class="container">
+            <!-- Header Title -->
+            <div class="catalog-header" id="myLearningHeaderTitle" style="margin-bottom: 1.5rem;">
+                <span class="section-tag"><i class="fas fa-book-reader"></i> My Learning Space</span>
+                <h1 class="section-title">Enrolled <span>Courses</span></h1>
+                <p class="section-subtitle">
+                    Track your progress, resume ongoing courses, and review your completion milestones.
+                </p>
+            </div>
+
+            <!-- Tab Navigation (All, In Progress, Completed) -->
+            <div class="learning-tabs-nav" id="myLearningTabsNav">
+                <button class="learning-tab-btn active" data-tab="all">
+                    <i class="fas fa-list"></i> All Enrolled
+                </button>
+                <button class="learning-tab-btn" data-tab="in-progress">
+                    <i class="fas fa-spinner"></i> In Progress
+                </button>
+                <button class="learning-tab-btn" data-tab="completed">
+                    <i class="fas fa-check-circle"></i> Completed
+                </button>
+            </div>
+
+            <!-- Enrolled Courses Grid or Classroom Player Screen -->
+            <div id="myLearningContainer">
+                <div class="text-center" style="padding: 4rem 1rem;">
+                    <i class="fas fa-circle-notch fa-spin" style="font-size: 2rem; color: var(--primary-teal);"></i>
+                    <p style="margin-top: 1rem; color: var(--text-secondary);">Loading your enrolled courses...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Professional Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <div>&copy; 2026 THIRAN (திறன்). Official Tagline: Learn. Grow. Shine.</div>
+                <div class="footer-bottom-links">
+                    <a href="index.html">Home</a>
+                    <a href="courses.html">Browse Courses</a>
+                    <a href="dashboard.html">Dashboard</a>
+                    <a href="profile.html">Profile</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/learning.js"></script>
+</body>
+</html>

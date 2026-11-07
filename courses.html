@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Explore THIRAN's complete course catalog. Filter by Web Development, AI, Data Science, Python, Cybersecurity, and Cloud computing.">
+    <title>All Courses Catalog | THIRAN (திறன்) - Learn. Grow. Shine.</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Sans+Tamil:wght@500;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/courses.css">
+</head>
+<body>
+
+    <!-- Site Header -->
+    <header class="site-header">
+        <div class="container navbar">
+            <a href="index.html" class="brand-logo">
+                <div class="brand-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
+                <div class="brand-titles">
+                    <span class="brand-name">THIRAN <span class="brand-tamil-badge">திறன்</span></span>
+                    <span class="brand-tagline-mini">Learn. Grow. Shine.</span>
+                </div>
+            </a>
+
+            <nav class="nav-menu">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="courses.html" class="nav-link active">Courses</a>
+                <a href="index.html#about" class="nav-link">About</a>
+                <a href="dashboard.html" class="nav-link">Dashboard</a>
+                <a href="my-learning.html" class="nav-link">My Learning</a>
+            </nav>
+
+            <div class="nav-actions">
+                <button class="theme-toggle-btn" aria-label="Toggle Theme" title="Toggle Dark/Light Mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <a href="login.html" class="btn btn-outline btn-sm">Login</a>
+                <a href="register.html" class="btn btn-primary btn-sm">Get Started</a>
+                <button class="mobile-nav-toggle" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="courses-page">
+        <div class="container">
+            <!-- Catalog Header -->
+            <div class="catalog-header">
+                <span class="section-tag"><i class="fas fa-compass"></i> Discover & Excel</span>
+                <h1 class="section-title">Explore <span>Course Catalog</span></h1>
+                <p class="section-subtitle">
+                    Find top-rated engineering courses tailored to your goals. Filter by discipline, difficulty level, and price.
+                </p>
+
+                <!-- Search Input Bar -->
+                <form class="catalog-search-wrapper" id="catalogSearchForm">
+                    <input type="text" id="catalogSearchInput" class="catalog-search-input" placeholder="Search by course title, topic, or instructor (e.g. Python, AI, React)..." aria-label="Search courses">
+                    <button type="submit" class="catalog-search-btn" aria-label="Submit search">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+
+            <!-- Category Filter Pills Bar -->
+            <div class="category-filter-bar" id="categoryPillsContainer">
+                <button class="category-pill active" data-category="all">All Disciplines</button>
+                <button class="category-pill" data-category="Web Development">Web Development</button>
+                <button class="category-pill" data-category="Programming">Programming</button>
+                <button class="category-pill" data-category="Data Science">Data Science</button>
+                <button class="category-pill" data-category="Artificial Intelligence">Artificial Intelligence</button>
+                <button class="category-pill" data-category="UI/UX Design">UI/UX Design</button>
+                <button class="category-pill" data-category="Database Management">Database Management</button>
+                <button class="category-pill" data-category="Cybersecurity">Cybersecurity</button>
+                <button class="category-pill" data-category="Cloud Computing">Cloud Computing</button>
+            </div>
+
+            <!-- Secondary Controls Toolbar (Results count, Level, Price, Sort) -->
+            <div class="filter-controls-bar">
+                <div class="results-count" id="resultsCount">
+                    Showing <strong>0</strong> courses
+                </div>
+
+                <div class="filter-dropdowns">
+                    <!-- Level Filter -->
+                    <select class="filter-select" id="levelFilter" aria-label="Filter by skill level">
+                        <option value="all">All Skill Levels</option>
+                        <option value="beginner">Beginner</option>
+                        <option value="intermediate">Intermediate</option>
+                        <option value="advanced">Advanced</option>
+                    </select>
+
+                    <!-- Price Filter -->
+                    <select class="filter-select" id="priceFilter" aria-label="Filter by price">
+                        <option value="all">All Pricing</option>
+                        <option value="free">Free Courses Only</option>
+                        <option value="paid">Premium Paid</option>
+                    </select>
+
+                    <!-- Sort Filter -->
+                    <select class="filter-select" id="sortFilter" aria-label="Sort courses">
+                        <option value="popular">Most Popular</option>
+                        <option value="rating">Highest Rated</option>
+                        <option value="duration">Longest Duration</option>
+                        <option value="price-low">Price: Low to High</option>
+                    </select>
+
+                    <!-- Reset Filters Button -->
+                    <button type="button" class="btn reset-filters-btn" id="resetFiltersBtn" title="Reset all applied filters">
+                        <i class="fas fa-times-circle"></i> Reset
+                    </button>
+                </div>
+            </div>
+
+            <!-- Dynamic Courses Grid -->
+            <div class="courses-grid" id="coursesGrid">
+                <!-- Injected dynamically by js/courses.js -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Professional Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="index.html" class="brand-logo">
+                        <div class="brand-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="brand-titles">
+                            <span class="brand-name">THIRAN <span class="brand-tamil-badge">திறன்</span></span>
+                            <span class="brand-tagline-mini" style="color: #94A3B8;">Learn. Grow. Shine.</span>
+                        </div>
+                    </a>
+                    <p class="footer-about">
+                        THIRAN (திறன்) is dedicated to unlocking the potential of passionate developers through interactive curriculum and hands-on skill verification.
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="courses.html">Courses Catalog</a></li>
+                        <li><a href="dashboard.html">Student Dashboard</a></li>
+                        <li><a href="my-learning.html">My Learning Space</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Popular Categories</h4>
+                    <ul class="footer-links">
+                        <li><a href="courses.html?category=Web+Development">Web Development</a></li>
+                        <li><a href="courses.html?category=Artificial+Intelligence">Generative AI</a></li>
+                        <li><a href="courses.html?category=Data+Science">Data Science</a></li>
+                        <li><a href="courses.html?category=Cloud+Computing">AWS & Cloud</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Newsletter</h4>
+                    <p class="newsletter-text">Receive updates on new courses, free learning resources, and career tips.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required aria-label="Email address">
+                        <button type="submit" class="btn btn-primary btn-sm">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div>&copy; 2026 THIRAN (திறன்). Learn. Grow. Shine. All Rights Reserved.</div>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms</a>
+                    <a href="#">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/courses.js"></script>
+</body>
+</html>
